@@ -1,0 +1,51 @@
+{
+    // Place your snippets for dart here. Each snippet is defined under a snippet name and has a prefix, body and 
+    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+    // same ids are connected.
+    // Example:
+    "kFreezedClass": {
+        "prefix": "ksFreezedClass",
+        "body": [
+            "@freezed",
+            "class ${CLASS_NAME} with _$${CLASS_NAME} {",
+            "const factory ${CLASS_NAME}({@JsonKey(name: 'id') required int id})=",
+            "_${CLASS_NAME};",
+            "factory ${CLASS_NAME}.fromJson(Map<String, Object?> json) =>",
+            "_$${CLASS_NAME}FromJson(json);}",
+        ],
+        "description": "Freezed class"
+    },
+    "kDeviceScaleVar": {
+        "prefix": "ksDeviceScaleVar",
+        "body": [
+            "double deviceWidth = MediaQuery.of(context).size.width;",
+            "double deviceScale = AppThemeConst.mockupDesignWidth / deviceWidth;",
+            "final textScale = deviceWidth / AppThemeConst.mockupDesignWidth;",
+        ],
+        "description": "Device scal variables"
+    },
+    "ksNewPage": {
+        "prefix": "ksNewPage",
+        "body": [
+            "import 'package:flutter/material.dart';",
+            "class ${PAGE_NAME}Arguments {}",
+            "class ${PAGE_NAME}Parent extends StatelessWidget {",
+            "static const String routeName = '/MyNewPageParent';",
+            "${PAGE_NAME}Parent({Key? key}) : super(key: key);",
+            "@override",
+            "Widget build(BuildContext context){",
+            "final ${PAGE_NAME}Arguments args = ModalRoute.of(context)!.settings.arguments as ${PAGE_NAME}Arguments;",
+            "return ${PAGE_NAME}Page(args);}}",
+            "class ${PAGE_NAME}Page extends StatelessWidget {",
+            "const ${PAGE_NAME}Page(this.args,{Key? key}) : super(key: key);",
+            "final ${PAGE_NAME}Arguments args;",
+            "",
+            "@override",
+            "Widget build(BuildContext context) {",
+            "return ${PAGE_NAME}Page(this.args);}}",
+        ],
+        "description": "Simply create new page with arguments",
+        "isFileTemplate": true,
+    }
+}
